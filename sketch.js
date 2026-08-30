@@ -13,10 +13,10 @@ let chooseButton;
 
 async function setup() {
   // Load the map and sound
-  shape = await loadModel('/a-isle-3.stl',true);
+  shape = await loadModel('./a-isle-3.stl',true);
 
   for (let i = 0; i < songNum; i++) {
-    song[i] = await loadSound('/Akutan_MN-'+i+'.mp3');
+    song[i] = await loadSound('./Akutan_MN-'+i+'.mp3');
     song[i].loop(false);
   }
 
