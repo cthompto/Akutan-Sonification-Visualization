@@ -15,4 +15,16 @@ button {
   color: black;
 }
 
+h1,p {
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  display: block;
+  text-align: center;
+  margin: auto;
+}
+
+p {
+  margin-bottom: 30px;
+}
+
 
