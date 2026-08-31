@@ -12,23 +12,25 @@ let currentSong;
 let chooseButton;
 
 async function setup() {
-  // Load the map and sound
+  // Load the map
   shape = await loadModel('./a-isle-3.stl',true);
 
+  // Load sounds, split into seperate files
   for (let i = 0; i < songNum; i++) {
     song[i] = await loadSound('./Akutan_MN-'+i+'.mp3');
     song[i].loop(false);
   }
 
+  // select a random starting song/sound
   currentSong = int(random(songNum));
   console.log(currentSong);
-  //song = await loadSound('/Akutan_MN.mp3');
 
   // Create the canvas and define environment
   createCanvas(600, 400, WEBGL);
   angleMode(DEGREES);
   frameRate(30);
 
+  // Connect sound analysis
   analyze = new p5.Amplitude();
   song[currentSong].connect(analyze);
 
@@ -38,13 +40,15 @@ async function setup() {
 }
 
 function draw() {
+  // model drawing parameters
   strokeWeight(0.5);
   stroke(255);
   fill(0);
-  background(0);
-  // Enable orbiting with the mouse.
-  //orbitControl();
 
+  // Draw background to create smooth motion
+  background(0);
+
+  // Run function to change mountain hight with sound
   modelScale();
 
   // Draw the map
@@ -54,10 +58,9 @@ function draw() {
   rotVal = rotVal + rotRate;
   rotateZ(rotVal);
   model(shape);
-
-
 }
 
+// Start and stop sound
 function keyPressed() {
   if(!song[currentSong].playing) {
      song[currentSong].start();
@@ -67,6 +70,7 @@ function keyPressed() {
   }
 }
 
+// Choose a new random song/sound
 function newSong() {
   if(!song[currentSong].playing) {
      currentSong = int(random(songNum));
@@ -74,6 +78,7 @@ function newSong() {
   }
 }
 
+// Translate amplitude to model hight
 function modelScale() {
   if(song[currentSong].playing) {
     amplitude = analyze.getLevel();
