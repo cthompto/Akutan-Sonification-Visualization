@@ -1,11 +1,12 @@
 body {
   margin: 0;
-  padding: 10px;
+  padding: 0px;
   background-color: black;
 }
 canvas {
   display: block;
   margin: auto;
+  padding: 0px;
 }
 button {
   display: block;
@@ -25,10 +26,6 @@ h1,p {
 
 p {
   margin-bottom: 30px;
-}
-
-a,a:visited {
-  color: lightpink;
 }
 
 
