@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  padding: 0px;
+  background-color: black;
+}
+canvas {
+  display: block;
+  margin: auto;
+  padding: 0px;
+}
+button {
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+  background-color: white;
+  color: black;
+}
+
+h1,p {
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  display: block;
+  text-align: center;
+  margin: auto;
+}
+
+p {
+  margin-bottom: 30px;
+}
+
+
